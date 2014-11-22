@@ -1,0 +1,31 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ThingsOfInternet/Views/Controls/LabeledSwitch.xaml.cs">
+    <Files>
+      <File FileName="ThingsOfInternet/App.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Commands/SetHomeStatusCommand.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Services/ViewModelLocatorService.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Scenes/SceneListPage.xaml" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Scenes/SceneListPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/SideMenuPage.xaml" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Bootstrap.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/ContentPageBase.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Devices/LightSwitchDetailsPage.xaml" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/ViewModels/SceneListViewModel.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/ViewModels/SceneViewModel.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Devices/CommonDetailView.xaml.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Devices/ThingListPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Devices/ThingListPage.xaml" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Controls/LabeledSwitch.xaml" Line="1" Column="1" />
+      <File FileName="ThingsOfInternet/Views/Controls/LabeledSwitch.xaml.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/Jonny/Projects/ThingsOfInternet/ThingsOfInternet/Views/Controls/LabeledSwitch.xaml.cs" line="31" column="1" />
+      <Breakpoint file="/Users/Jonny/Projects/ThingsOfInternet/ThingsOfInternet/ViewModels/SceneViewModel.cs" line="71" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

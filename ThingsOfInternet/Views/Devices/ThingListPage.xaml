@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:ctrls="clr-namespace:ThingsOfInternet.Controls;assembly=ThingsOfInternet"
+		xmlns:xlctrls="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
+		xmlns:converters="clr-namespace:ThingsOfInternet.Converters;assembly=ThingsOfInternet"
+		xmlns:ui="clr-namespace:ThingsOfInternet.UI;assembly=ThingsOfInternet"
+		xmlns:views="clr-namespace:ThingsOfInternet.Views;assembly=ThingsOfInternet"
+		xmlns:vms="clr-namespace:ThingsOfInternet.ViewModels;assembly=ThingsOfInternet"
+		x:TypeArguments="vms:MainViewModel"
+		x:Class="ThingsOfInternet.Views.ThingListPage"
+		Title="{Binding NavigationTitle}">
+<!--	<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+	</Grid>-->
+
+<!--	<ListView ItemsSource="{Binding TogglableItems}">
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<ViewCell>
+					<ViewCell.View>
+						
+						<Button>
+							<Button.Content>
+								<Label Text="Test" />
+								<Label Text="Test 2" />
+							</Button.Content>
+						</Button>
+					</ViewCell.View>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>-->
+
+	<views:ContentPageBase.Resources>
+		<ResourceDictionary>
+			<converters:ThingTypeConverter x:Key="ThingTypeConverter" />
+		</ResourceDictionary>
+	</views:ContentPageBase.Resources>
+
+<!--	<views:ContentPageBase.Content>
+		<ScrollView>
+			<ctrls:BindableGrid ItemsSource="{Binding TogglableItems}" RowSpacing="0" ColumnSpacing="0" Columns="2">
+				<ctrls:BindableGrid.ItemTemplate>
+					<DataTemplate>
+						<Button BackgroundColor="{x:Static ui:ColorGenerator.GridBackground}" BorderRadius="0" BorderWidth="1" BorderColor="#CCCCCC">
+							<Button.Content>
+								<StackLayout>
+									<Label Text="{Binding ., Converter={StaticResource ThingTypeConverter}}" />
+									<Label Text="{Binding DisplayName}" />
+								</StackLayout>
+							</Button.Content>
+						</Button>
+					</DataTemplate>
+				</ctrls:BindableGrid.ItemTemplate>
+			</ctrls:BindableGrid>
+		</ScrollView>
+	</views:ContentPageBase.Content>-->
+
+	<views:ContentPageBase.Content>
+		<ctrls:PullToRefreshListView x:Name="ItemsList" 
+				  ItemsSource="{Binding TogglableItems}" 
+				  RefreshCommand="{Binding RefreshCommand}"
+				  IsRefreshing="{Binding IsRefreshing}"
+				  HasUnevenRows="true" RowHeight="90"
+				  IsGroupingEnabled="true" GroupDisplayBinding="{Binding Key}">
+			<ctrls:PullToRefreshListView.GroupHeaderTemplate>
+				<DataTemplate>
+					<ViewCell Height="30">
+						<StackLayout VerticalOptions="FillAndExpand" Padding="5,5,5,5">
+							<Label Text="{Binding Key}" TextColor="Black" VerticalOptions="Center" />
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ctrls:PullToRefreshListView.GroupHeaderTemplate>
+			<ctrls:PullToRefreshListView.ItemTemplate>
+				<DataTemplate>
+					<xlctrls:ExtendedViewCell SeparatorPadding="0,0,0,0"
+											  ShowDisclousure="True">
+						<xlctrls:ExtendedViewCell.View>
+							<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="0,5,0,10">
+								<Label Text="{Binding DisplayName}" />
+								<StackLayout Orientation="Horizontal">
+									<Label Text="{Binding Category}" WidthRequest="150" />
+									<Label Text="{Binding IsToggled, StringFormat='Toggled: {0}'}" />
+								</StackLayout>
+								<Label Text="{Binding Status}" />
+							</StackLayout>
+<!--								<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10,5,5,5" HeightRequest="100">
+								<controls:ExtendedLabel Text="{Binding FirstName}" 
+    								FontNameAndroid="fonts/Roboto-Light.ttf" 
+    								FontNameIOS="Roboto-Light" 
+    								FontSize="22"
+    								HorizontalOptions="StartAndExpand"
+							 		VerticalOptions="Center" >
+								</controls:ExtendedLabel>
+							</Grid>-->
+						</xlctrls:ExtendedViewCell.View>
+					</xlctrls:ExtendedViewCell>
+				</DataTemplate>
+			</ctrls:PullToRefreshListView.ItemTemplate>
+		</ctrls:PullToRefreshListView>
+	</views:ContentPageBase.Content>
+</views:ContentPageBase>

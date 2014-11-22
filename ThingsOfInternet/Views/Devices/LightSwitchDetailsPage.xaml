@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:views="clr-namespace:ThingsOfInternet.Views;assembly=ThingsOfInternet"
+		xmlns:vms="clr-namespace:ThingsOfInternet.ViewModels;assembly=ThingsOfInternet"
+		x:TypeArguments="vms:ThingViewModel"
+		x:Class="ThingsOfInternet.Views.LightSwitchDetailsPage"
+		Title="{Binding NavigationTitle}">
+	<views:ContentPageBase.Content>
+		<views:CommonDetailView/>
+	</views:ContentPageBase.Content>
+</views:ContentPageBase>

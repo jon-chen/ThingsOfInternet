@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:converters="clr-namespace:ThingsOfInternet.Converters;assembly=ThingsOfInternet"
+	x:Class="ThingsOfInternet.Views.CommonDetailView">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<converters:InvertBooleanConverter x:Key="InvertBooleanConverter" />
+		</ResourceDictionary>
+	</ContentView.Resources>
+
+	<ContentView.Content>
+		<TableView Intent="Form">
+			<TableView.Root>
+				<TableRoot>
+					<TableSection Title="Status">
+						<TextCell Text="Sync Status" Detail="{Binding Status}" />
+						<TextCell Text="Status Message" Detail="{Binding StatusMessage}" />
+						<TextCell Text="Last Synced" Detail="{Binding LastUpdated}" />
+						<TextCell Text="Message Bus Status" Detail="{Binding MessageBusStatus}" />
+					</TableSection>
+					<TableSection Title="Settings">
+						<EntryCell Label="Device ID" Text="{Binding DeviceId}" />
+						<EntryCell Label="Display Name" Text="{Binding DisplayName}" />
+						<ViewCell>
+							<ViewCell.View>
+								<AbsoluteLayout VerticalOptions="FillAndExpand">
+									<Label AbsoluteLayout.LayoutFlags="PositionProportional"
+										AbsoluteLayout.LayoutBounds="0.06,0.5,-1,-1"
+										Text="Toggled" />
+									<Switch AbsoluteLayout.LayoutFlags="PositionProportional"
+										AbsoluteLayout.LayoutBounds="0.94,0.5,-1,-1"
+										x:Name="ToggledSwitch" IsToggled="{Binding IsToggled}" IsEnabled="{Binding IsToggledBusy, Converter={StaticResource InvertBooleanConverter}}" />
+								</AbsoluteLayout>
+							</ViewCell.View>
+						</ViewCell>
+						<ViewCell>
+							<ViewCell.View>
+								<AbsoluteLayout VerticalOptions="FillAndExpand">
+									<Label AbsoluteLayout.LayoutFlags="PositionProportional"
+										AbsoluteLayout.LayoutBounds="0.06,0.5,-1,-1"
+										Text="Scheduler Enabled" />
+									<Switch AbsoluteLayout.LayoutFlags="PositionProportional"
+										AbsoluteLayout.LayoutBounds="0.94,0.5,-1,-1"
+										x:Name="SchedulerEnabledSwitch" IsToggled="{Binding IsSchedulerEnabled}" IsEnabled="{Binding IsSchedulerEnabledBusy, Converter={StaticResource InvertBooleanConverter}}" />
+								</AbsoluteLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</TableSection>
+					<TableSection Title="Home Only Mode (HOMe)">
+						<ViewCell>
+							<ViewCell.View>
+								<AbsoluteLayout VerticalOptions="FillAndExpand">
+									<Label AbsoluteLayout.LayoutFlags="PositionProportional"
+										AbsoluteLayout.LayoutBounds="0.06,0.5,-1,-1"
+										Text="HOMe Enabled" />
+									<Switch AbsoluteLayout.LayoutFlags="PositionProportional"
+										AbsoluteLayout.LayoutBounds="0.94,0.5,-1,-1"
+										x:Name="HomeOnlyModeSwitch" IsToggled="{Binding IsHomeOnlyModeEnabled}" IsEnabled="{Binding IsHomeOnlyModeEnabledBusy, Converter={StaticResource InvertBooleanConverter}}" />
+								</AbsoluteLayout>
+							</ViewCell.View>
+						</ViewCell>
+						<TextCell Text="Current Home Count" Detail="{Binding CurrentHomeCount}" />
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout>
+									<Button Text="Reset Count" Command="{Binding ResetCurrentHomeCounterCommand}" CommandParameter="{Binding .}" />
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</TableSection>
+				</TableRoot>
+			</TableView.Root>
+		</TableView>
+	</ContentView.Content>
+</ContentView>
